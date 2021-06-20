@@ -313,11 +313,11 @@ class _DateRangePickerDialogState extends State<_DateRangePickerDialog> {
         ? colors.onPrimary
         : colors.onSurface;
 
-    Widget contents;
-    Size size;
+    Widget? contents;
+    Size? size;
     ShapeBorder? shape;
-    double elevation;
-    EdgeInsets insetPadding;
+    double? elevation;
+    EdgeInsets? insetPadding;
     final showEntryModeButton = _entryMode == DatePickerEntryMode.calendar ||
         _entryMode == DatePickerEntryMode.input;
     switch (_entryMode) {
@@ -417,8 +417,8 @@ class _DateRangePickerDialogState extends State<_DateRangePickerDialog> {
 
     return Dialog(
       child: AnimatedContainer(
-        width: size.width,
-        height: size.height,
+        width: size?.width,
+        height: size?.height,
         duration: _dialogSizeAnimationDuration,
         curve: Curves.easeIn,
         child: MediaQuery(
@@ -426,7 +426,7 @@ class _DateRangePickerDialogState extends State<_DateRangePickerDialog> {
             textScaleFactor: textScaleFactor,
           ),
           child: Builder(builder: (BuildContext context) {
-            return contents;
+            return contents ?? Container();
           }),
         ),
       ),

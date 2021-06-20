@@ -306,6 +306,7 @@ class _DatePickerDialogState extends State<_DatePickerDialog> {
             return _inputLandscapeDialogSize;
         }
     }
+    return Size.zero;
   }
 
   static final Map<LogicalKeySet, Intent> _formShortcutMap =
@@ -404,8 +405,8 @@ class _DatePickerDialogState extends State<_DatePickerDialog> {
       );
     }
 
-    Widget picker;
-    final Widget? entryModeButton;
+    Widget? picker;
+    Widget? entryModeButton = null;
     switch (_entryMode) {
       case DatePickerEntryMode.calendar:
         picker = calendarDatePicker();
@@ -457,7 +458,7 @@ class _DatePickerDialogState extends State<_DatePickerDialog> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: <Widget>[
                       header,
-                      Expanded(child: picker),
+                      if (picker != null) Expanded(child: picker),
                       actions,
                     ],
                   );
@@ -472,7 +473,7 @@ class _DatePickerDialogState extends State<_DatePickerDialog> {
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: <Widget>[
-                            Expanded(child: picker),
+                            if (picker != null) Expanded(child: picker),
                             actions,
                           ],
                         ),
