@@ -44,7 +44,7 @@ DateTime addMonthsToMonthDate(DateTime monthDate, int monthsToAdd) {
 /// Computes the offset from the first day of the week that the first day of
 /// the [month] falls on.
 int firstDayOffset(int year, int month) {
-  return DateTime(year, month).weekday - 1;
+  return DateTime(year, month).weekday;
 }
 
 /// Returns the number of days in a month.
